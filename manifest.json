@@ -2,11 +2,11 @@
     "manifest_version": 3,
     "version":"1.0",
     "name":"Popup Extension",
-    "description":"Copy any URL",
+    "description":"Show Titles",
     
     "permissions":["activeTab", "scripting", "tabs"],
     "action":{
-        "default-tittle":"Click to copy this site",
+        "default-tittle":"Show title of webpage",
         "default_popup":"index.html",
         "default_icon":{
             "24":"./Icons/icon1.png",

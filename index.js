@@ -1,4 +1,3 @@
-console.log("Hello ji")
 
 let btn = document.querySelector(".button");
 
@@ -8,18 +7,12 @@ btn.addEventListener("click", async()=>{
     let [tabs] = await chrome.tabs.query({ active:true, currentWindow: true});
     
     if(tabs){
+        const title = tabs.title;
         const url = tabs.url;
-        let urlText = document.querySelector(".url");
+        let titleText = document.querySelector(".title");
 
-        if(!urlText.querySelector("a")){
-
-            let newElem = document.createElement("a");
-            newElem.href = url;
-            newElem.className = "webTag";
-            newElem.target = "_blank"
-            newElem.innerHTML = "Visit website 🌐";
-            urlText.appendChild(newElem)
-            
+        if(!titleText.innerHTML){
+            titleText.innerHTML = title;
             copyUrl(url);
         }
         
@@ -27,7 +20,7 @@ btn.addEventListener("click", async()=>{
 })
 
 
-function copyUrl(urltext){
+function copyUrl(titleText){
     let newElem = document.createElement("button");
     newElem.className = "copyElement"
     newElem.innerHTML = `<img src="./Icons/copy.png" alt="none" width="30px"/>`
@@ -36,8 +29,8 @@ function copyUrl(urltext){
     result.appendChild(newElem)
     
     let copyBtn = document.querySelector(".copyElement").addEventListener('click', ()=>{
-        console.log("Copied", urltext)
-        navigator.clipboard.writeText(urltext).then(()=>{
+        console.log("Copied", titleText)
+        navigator.clipboard.writeText(titleText).then(()=>{
             newElem.innerHTML = `<img src="./Icons/copy (1).png" alt="none" width="30px" />`
         })
         .catch((error) => {

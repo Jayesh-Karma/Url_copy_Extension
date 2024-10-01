@@ -1,0 +1,17 @@
+{
+    "manifest_version": 3,
+    "version":"1.0",
+    "name":"Popup Extension",
+    "description":"Copy any URL",
+    
+    "permissions":["activeTab", "scripting", "tabs"],
+    "action":{
+        "default-tittle":"Click to copy this site",
+        "default_popup":"index.html",
+        "default_icon":{
+            "24":"./Icons/icon1.png",
+            "32":"./Icons/icon1.png",
+            "48":"./Icons/icon1.png"
+        }
+    }
+}
